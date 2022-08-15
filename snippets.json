@@ -1,0 +1,158 @@
+{
+  "Print to console": {
+    "prefix": "logLabel",
+
+    "body": ["console.log(\"${1:label} =====> \", ${1:value})", "$2"],
+    "description": "Add red border style"
+  },
+
+  "Add border react": {
+    "prefix": "cbor",
+    "body": ["style={{ borderWidth: \"1px\", borderColor: \"red\" }}"],
+    "description": "Log output to console with label"
+  },
+
+  "Arrow Function": {
+    "prefix": ["syncfun"],
+    "body": ["export const ${1:name} = (${2:arg}: ${3:any}): ${4:any} => {", "  return undefined", "}"],
+    "description": "Empty arrow function"
+  },
+  "Arrow async Function": {
+    "prefix": ["asyncfun"],
+    "body": ["export const ${1:name} = async (${2:arg}: ${3:any}): Promise<${4:any}> => {", "  return undefined", "}"],
+    "description": "Empty async arrow function"
+  },
+  "Get static props": {
+    "prefix": ["getStPr"],
+    "body": ["export const getStaticProps = async () => ({", "  props: {", "    $1", "  }", "})"],
+    "description": "Generic get static props"
+  },
+  "Get static paths": {
+    "prefix": ["getStPa"],
+    "body": [
+      "export const getStaticPaths = async () => ({",
+      "  paths: [",
+      "    {",
+      "      params: {",
+      "        $1",
+      "      }",
+      "    }",
+      "  ]",
+      "})"
+    ],
+    "description": "Generic get static paths"
+  },
+  "Tag": {
+    "prefix": ["tag"],
+    "body": ["<${1:tagLabel} ${2:arg}> $3 </${1:tagLabel}>"],
+    "description": "Empty tag"
+  },
+  "Solo Tag": {
+    "prefix": ["stag"],
+    "body": ["<${1:tagLabel} ${2:arg}/>"],
+    "description": "Empty solo tag"
+  },
+  "Style comp": {
+    "prefix": ["sty"],
+    "body": ["export const ${1:name} = styled(${2:comp})`", "  $3", "`"],
+    "description": "Empty solo tag"
+  },
+  "Functionnal component": {
+    "prefix": ["funcomp"],
+    "body": ["const ${1:name} = () => <div> </div>", "", "export default ${1:name}"],
+    "description": "Empty functionnal component"
+  },
+  "Type model": {
+    "prefix": ["type"],
+    "body": ["export type ${1:Name} = {", "  ${2:prop}: ${3:any}", "}"],
+    "description": "Empty Type"
+  },
+  "Enum model": {
+    "prefix": ["enum"],
+    "body": ["export enum ${1:Name} {", "  ${2:EnumValue} = ${3:\"enumValue\"},", "}"],
+    "description": "Empty Enum"
+  },
+  "Test sandbox Sinon": {
+    "prefix": ["sandbox"],
+    "body": [
+      "import * as Module from \"../application/modules/name\"",
+      "const sandbox = sinon.createSandbox()",
+      "",
+      "test.beforeEach(\"set context\", (test) => {",
+      "  sandbox.restore()",
+      "  test.context = {",
+      "    ${1:functionName}: sandbox.stub(${2:Module}, \"${1:functionName}\"),",
+      "  }",
+      "})"
+    ],
+    "description": "initiate sinon sandbox"
+  },
+  "Test model Ava": {
+    "prefix": ["test"],
+    "body": ["test(\"${1:test description}\", async (test) => {", "", "  $2", "", "  test.is(1, 1)", "})"],
+    "description": "initiate empty test"
+  },
+  "Context test model Ava Sinon": {
+    "prefix": ["contextTest"],
+    "body": [
+      "test.serial(\"${1:test description}\", async (test) => {",
+      "  const { context: stub } = test as ExecutionContext<Record<string, SinonStub>>",
+      "",
+      "  $2",
+      "",
+      "  test.is(1, 1)",
+      "})"
+    ],
+    "description": "initiate empty test with context"
+  },
+  "Typed Rest client": {
+    "prefix": ["restClient"],
+    "body": ["const ${1:clientName}Client = new RestClient(\"${1:clientName}\", appConfig.${2:clientBasePath})"],
+    "description": "initiate typed-rest-client"
+  },
+  "Import as *": {
+    "prefix": ["importAs"],
+    "body": ["import * as ${2:ModuleName} from \"${1:./path}\""],
+    "description": "initiate typed-rest-client"
+  },
+  "Test throws": {
+    "prefix": ["testThrows"],
+    "body": ["const error = await t.throwsAsync<${1:AppExit}>(${2:functionName}(${3:arg}))"],
+    "description": "initiate typed-rest-client"
+  },
+  "Const": {
+    "prefix": ["cns"],
+    "body": ["const ${1:name} = "],
+    "description": "initiate typed-rest-client"
+  },
+  "ExhaustiveSwitch": {
+    "prefix": ["exswitch"],
+    "body": [
+      "switch (key) {",
+      "  case value:",
+      "   break",
+      "",
+      "  default: {",
+      "    ;((missingPeriodCase: never) => \"\")(key)",
+      "  }",
+      "}"
+    ],
+    "description": "initiate typed-rest-client"
+  },
+  "Api route": {
+    "prefix": ["apiroute"],
+    "body": [
+      "export const ${1:routeName} = async (request: Request, response: Response, next: NextFunction) => {",
+      "  try {",
+      "",
+      "    ${2}",
+      "",
+      "    response.json(undefined)",
+      "  } catch (throwedValue) {",
+      "    handleExits(throwedValue, response)",
+      "  }",
+      "}"
+    ],
+    "description": "Empty arrow function"
+  }
+}
